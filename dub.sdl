@@ -1,5 +1,5 @@
-name "qt-evolution-adapter"
-description "Qt 5 to 6 Migration Tool"
+name "evolution-engine"
+description "The core engine for the Evolution Adaptation Ecosystem."
 authors "AMDphreak"
 copyright "Copyright © 2026, AMDphreak"
 license "MIT"

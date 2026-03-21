@@ -27,8 +27,9 @@ jobs:
 
     - name: Run Verification
       run: |
-        # Create a test file
-        echo "from PyQt5.QtWidgets import QApplication, QAction" > test_qt5.py
-        ./qt-upgrader --path test_qt5.py --rules rules/qt5_to_qt6.sdl
-        grep "PyQt6" test_qt5.py
-        grep "QtGui" test_qt5.py
+        # Create a dummy rule for testing the traversal logic
+        mkdir -p rules/test
+        echo 'rule "test-rule" { replace "OLD" "NEW" }' > rules/test/1.0-2.0.sdl
+        echo "OLD" > test_file.txt
+        dub run -- --path test_file.txt --rules-dir rules/test --from 1.0 --to 2.0
+        grep "NEW" test_file.txt
