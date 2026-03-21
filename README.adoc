@@ -1,54 +1,54 @@
-= Qt Evolution Adapter
+= Evolution Engine
 :revdate: 2026-03-21
 :toc: left
 
-A high-performance, compile-time adaptation toolkit for automatically upgrading Qt5 code to Qt6.
+The core transformation engine for the **Evolution Adaptation Ecosystem**. A high-performance, D-based platform for automated, rule-driven codebase evolution.
 
 == Features
 
-* **Non-Bloated**: Compiled D binary (no Python runtime required).
-* **SDL Rules**: Uses human-friendly SDL rulesets.
-* **Fast**: Optimized regex processing.
-* **CI Ready**: Easily integrated into GitHub Actions.
+* **Generic & Modular**: Decoupled from specific rulesets. Use it for Qt, OpenCV, React, or any framework.
+* **Version Traversal**: Automatically finds transformation paths between versions (e.g., `--from 1.0 --to 2.0`).
+* **SDL Rules**: Uses human-readable SDL (Simple Declarative Language) for defining transformation logic.
+* **Zero Dependencies**: Compiled D binary for near-instant execution in any environment.
 
 == Installation
 
-You only need the `dub` package manager (part of the D compiler suite).
+Requires the `dub` package manager (part of the D compiler suite).
 
-[source,powershell]
+[source,bash]
 ----
-git clone https://github.com/AMDphreak/qt-upgrader.git
-cd qt-upgrader
+git clone https://github.com/AMDphreak/evolution-engine.git
+cd evolution-engine
 dub build -b release
 ----
 
-The binary will be available in the root folder as `qt-upgrader` (or `qt-upgrader.exe`).
-
 == Usage
 
-[source,powershell]
+[source,bash]
 ----
-./qt-upgrader --path "C:/my-project" --rules "rules/qt5_to_qt6.sdl"
+./evolution-engine --path "/path/to/code" \
+                   --rules-dir "/path/to/rules" \
+                   --from "1.0" \
+                   --to "2.0"
 ----
 
-=== Options
+=== CLI Options
 
-* `-p, --path`: Path to process (folder or file).
-* `-r, --rules`: Path to the SDL rules file.
-* `-e, --extensions`: Comma-separated list of extensions (default: `.py,.cpp,.h`).
-* `-d, --dry-run`: See changes without applying them.
+* `-p, --path`: Path to the source code to adapt (folder or file).
+* `-r, --rules-dir`: Directory containing version-specific rules (`[from]-[to].sdl`).
+* `-f, --from`: The starting version of your codebase.
+* `-t, --to`: The target version to evolve to.
+* `-e, --extensions`: Comma-separated list of file extensions (default: `.py,.cpp,.h`).
+* `-d, --dry-run`: Preview changes without modifying files.
 
-== Ruleset (SDL)
+== GitHub Action
 
-Rules are defined in `rules/qt5_to_qt6.sdl`. Example:
+For seamless CI/CD integration, use the modular **link:https://github.com/AMDphreak/evolution-action[Evolution Action]**. It automatically fetches the engine and your specified ruleset to adapt code during your build pipeline.
 
-[source,sdl]
-----
-ruleset "MyRules" {
-    replace "OldName" "NewName"
-    regex "\\.oldFunc\\(\\)" ".newFunc()"
-}
-----
+== Rulesets
+
+Standard rulesets are maintained in dedicated repositories:
+* **link:https://github.com/AMDphreak/evolution-rules-qt[Evolution Rules (Qt)]**: Migration rules for Qt 5.x to 6.x.
 
 == Changelog
 
