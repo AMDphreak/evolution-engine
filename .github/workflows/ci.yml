@@ -29,9 +29,7 @@ jobs:
       run: |
         # Create a dummy rule for testing the traversal logic
         mkdir -p rules/test
-        echo 'rule "test-rule" {' > rules/test/1.0-2.0.sdl
-        echo '  replace "OLD" "NEW"' >> rules/test/1.0-2.0.sdl
-        echo '}' >> rules/test/1.0-2.0.sdl
+        printf "rule \"test-rule\" {\n  replace \"OLD\" \"NEW\"\n}\n" > rules/test/1.0-2.0.sdl
         echo "OLD" > test_file.txt
         dub run -- --path test_file.txt --rules-dir rules/test --from 1.0 --to 2.0
         grep "NEW" test_file.txt
