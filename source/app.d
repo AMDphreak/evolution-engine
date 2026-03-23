@@ -200,8 +200,8 @@ int main(string[] args) {
         
         // Handle the GitHub-style top-level folder if it exists and subPath is empty
         if (subPath == "") {
-            auto entries = dirEntries(extractDir, SpanMode.shallow).array;
-            if (entries.length == 1 && entries[0].isDir) {
+            auto entries = dirEntries(extractDir, SpanMode.shallow).filter!(e => e.isDir).array;
+            if (entries.length == 1) {
                 actualRulesDir = entries[0].name;
             } else {
                 actualRulesDir = extractDir;
@@ -211,13 +211,20 @@ int main(string[] args) {
         }
         
         // Auto-append 'rules' if it exists and we are at the repo root
-        if (exists(buildPath(actualRulesDir, "rules")) && !exists(buildPath(actualRulesDir, "lib_dir.sdl"))) {
-             // If there's a rules folder but no top-level intent, assume the rules are in the folder
-             // (unless we are in code domain and there are .sdl files in the root)
-             bool hasSdlInRoot = false;
-             foreach(e; dirEntries(actualRulesDir, SpanMode.shallow)) if(e.name.endsWith(".sdl")) { hasSdlInRoot = true; break; }
+        // We dive if 'rules' exists AND the current dir doesn't look like a ruleset itself
+        if (exists(buildPath(actualRulesDir, "rules"))) {
+             bool looksLikeRuleset = false;
              
-             if (!hasSdlInRoot) {
+             if (domain == "filesystem") {
+                 // Does it have OS folders directly?
+                 string[] osFolders = ["linux", "windows", "mac", "bsd", "darwin"];
+                 foreach(os; osFolders) if(exists(buildPath(actualRulesDir, os))) { looksLikeRuleset = true; break; }
+             } else {
+                 // Does it have SDL files directly?
+                 foreach(e; dirEntries(actualRulesDir, SpanMode.shallow)) if(e.name.endsWith(".sdl")) { looksLikeRuleset = true; break; }
+             }
+             
+             if (!looksLikeRuleset) {
                  actualRulesDir = buildPath(actualRulesDir, "rules");
              }
         }
