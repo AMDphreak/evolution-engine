@@ -1,9 +1,11 @@
-= Evolution Engine
-:toc:
-:toc-title: Table of Contents
-:icons: font
-
 The core engine for the Evolution Adaptation Ecosystem. This tool provides a powerful, version-aware D-based engine for migrating source code between library and framework versions using SDL-based rulesets.
+
+== Ecosystem
+
+* link:https://github.com/AMDphreak/evolution-engine[Evolution Engine] — The core binary that resolves and applies evolutionary rules.
+* link:https://github.com/AMDphreak/evolution-engine-action[Evolution Engine Action] — Modular GitHub Action to automate code evolution in CI pipelines.
+* link:https://github.com/AMDphreak/evolution-rules-code[Evolution Rules: Code] — Rules for migrating source code between library versions (e.g., PyQt5 to PyQt6).
+* link:https://github.com/AMDphreak/evolution-rules-filesystem[Evolution Rules: Filesystem] — Rules for cross-OS path mapping and equivalency.
 
 == Features
 
@@ -42,7 +44,7 @@ You can directly use a remote rules repository. The engine will clone the repo, 
 
 [source,bash]
 ----
-evolution-engine --rules-repo https://github.com/AMDphreak/evolution-rules-qt --from 5.15 --to 6.0 --path ./src
+evolution-engine --rules-repo https://github.com/AMDphreak/evolution-rules-code --from 5.15 --to 6.0 --path ./src
 ----
 
 === CLI Options
