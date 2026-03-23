@@ -1,25 +1,15 @@
-# General
-.DS_Store
-*.swp
-*.bak
-*.txt
+# Ignore everything by default
+*
 
-# D Language
-/.dub/
-/dub.selections.json
-/evolution-engine
-/evolution-engine.exe
-/evolution-engine.pdb
-
-# Project-specific
-/bin/
-
-# Python artifacts (legacy)
-/__pycache__/
-*.pyc
-
-# Old builds (from previous names)
-/qt-evolution-adapter
-/qt-evolution-adapter.*
-/qt-upgrader
-/qt-upgrader.*
+# Allow specific files/folders
+!/.github/
+!/.github/**
+!/source/
+!/source/**
+!/tests/
+!/tests/**
+!/.gitignore
+!/CHANGELOG.md
+!/README.adoc
+!/dub.sdl
+!/walkthrough.md

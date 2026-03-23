@@ -1,5 +1,0 @@
-    Starting Performing "debug" build using C:\Program Files\LDC 1.42\bin\ldc2.exe for x86_64.
-    Building taggedalgebraic 0.11.24: building configuration [library]
-    Building sdlang-d 0.10.6: building configuration [library]
-    Building evolution-engine 1.2.9+commit.1.gbee7794: building configuration [application]
-     Linking evolution-engine
