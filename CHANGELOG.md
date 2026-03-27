@@ -22,5 +22,5 @@
 - Initial Python implementation of `qt-upgrader`.
 - JSON5 ruleset support.
 - GitHub Action wrapper.
-g common PyQt5/PyQt6 differences.
+- Supporting common PyQt5/PyQt6 differences.
 - CLI interface.
