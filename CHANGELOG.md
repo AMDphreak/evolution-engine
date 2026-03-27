@@ -1,6 +1,11 @@
 # Changelog
 
-## [2026-03-21] - Initial Release
+## [1.1.1] - 2026-03-27
+
+### Changed
+
+- Changed the "Publish Packages" job name to "Publish Winget Package" for clarity.
+- See details in [2026-03-27 - Clarify Winget Publishing Job](changelog-details/2026-03-27%20-%20Clarify%20Winget%20Publishing%20Job.md).
 
 ## [1.1.0] - 2026-03-21
 

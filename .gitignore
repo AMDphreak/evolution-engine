@@ -13,3 +13,5 @@
 !/README.adoc
 !/dub.sdl
 !/walkthrough.md
+!/changelog-details/
+!/changelog-details/**

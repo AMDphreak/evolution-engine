@@ -52,7 +52,7 @@ jobs:
           generate_release_notes: true
 
   publish-pkg:
-    name: Publish Packages
+    name: Publish Winget Package
     needs: release
     runs-on: windows-latest
     permissions:
