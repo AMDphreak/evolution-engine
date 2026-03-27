@@ -127,7 +127,8 @@ jobs:
 
 == Changelog
  
- Detailed history of changes is available in link:CHANGELOG.md[CHANGELOG.md].
+Detailed history of changes is available in link:CHANGELOG.md[CHANGELOG.md].
  
- == License
+== License
+
 MIT License. Copyright (c) 2026 AMDphreak.
